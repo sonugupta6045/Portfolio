@@ -1,30 +1,68 @@
-# Next js portfolio website
+# 💼 Sonu Gupta - Portfolio Website
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+A modern, responsive, and professional portfolio website built with **Next.js** and **Tailwind CSS** to showcase the skills, projects, and experience of **Sonu Gupta**, a full-stack web developer.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/sonu-guptas-projects-57474166/v0-next-js-portfolio-website)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/twdpgxqLCK4)
+## 🌐 Live Demo
 
-## Overview
+[Visit the Website](https://sonugupta6045.vercel.app/)
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
 
-## Deployment
+---
 
-Your project is live at:
+## 📌 Sections Overview
 
-**[https://vercel.com/sonu-guptas-projects-57474166/v0-next-js-portfolio-website](https://vercel.com/sonu-guptas-projects-57474166/v0-next-js-portfolio-website)**
+### 🧑‍💼 About Me
+A brief summary of my background, interests, education, and professional goals. Currently pursuing a B.E. at St. Francis Institute of Technology with strong skills in full-stack development, teamwork, and problem-solving.
 
-## Build your app
+### 🛠️ Skills
+Showcases my technical proficiencies:
 
-Continue building your app on:
+- **Languages:** HTML5, CSS3, JavaScript, Java, Python, SQL
+- **Frameworks & Libraries:** React.js, Node.js, Express.js
+- **Databases:** MySQL, MongoDB
+- **Tools:** Git, GitHub, VS Code
+- **Soft Skills:** Communication, Teamwork, Planning, Collaboration
 
-**[https://v0.dev/chat/projects/twdpgxqLCK4](https://v0.dev/chat/projects/twdpgxqLCK4)**
+### 📂 Projects
+Visual and detailed presentation of notable work:
 
-## How It Works
+- **🔹 News Hub:** Web app that scrapes and aggregates latest news from multiple sources using web scraping and categorization.
+- **🔹 Medi Care:** Real-time ambulance booking and GPS tracking platform using Google Maps API.
+- **🔹 Automated Recruitment System:** HRMS module for resume parsing, candidate shortlisting, and interview scheduling.
 
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+### 🧑‍🔧 Experience
+Includes internships and leadership:
+
+- **Intern:** Web Developer @ Spark Foundation – Developed basic web applications like a To-Do App, Calculator, and Tribute Page.
+- **Leadership:** Technical Chief Executive @ SKDC – Led a team, built an event-based game, and enhanced the committee’s website.
+
+### 📬 Contact
+Interactive form to reach out, plus social links:
+- **Email:** sonugupta6045@gmail.com
+- **LinkedIn:** [linkedin.com/in/gupta-sonu-77668a245](https://www.linkedin.com/in/gupta-sonu-77668a245/)
+- **GitHub:** [github.com/sonugupta6045](https://github.com/sonugupta6045)
+
+---
+
+## 🚀 Technologies Used
+
+- **Frontend:** Next.js, React, Tailwind CSS
+- **Forms:** React Hook Form / Native HTML
+- **Animations:** Framer Motion
+- **Styling:** TailwindCSS, Responsive Grid/Flex Layouts
+- **Deployment:** Vercel
+
+---
+
+## 📦 Getting Started (Local Development)
+
+```bash
+# Clone the repository
+git clone https://github.com/sonugupta6045/Portfolio.git
+cd portfolio
+
+# Install dependencies
+npm install
+
+# Run the development server
+npm run dev
