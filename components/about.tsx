@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
 import Image from "next/image"
+import { Mail, Github, Linkedin } from "lucide-react"
 
 export default function About() {
   const ref = useRef(null)
@@ -23,6 +24,7 @@ export default function About() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          {/* Photo */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
@@ -31,24 +33,16 @@ export default function About() {
           >
             <div className="aspect-square relative rounded-lg overflow-hidden border-4 border-background shadow-xl">
               <Image
-                src="/placeholder.svg?height=600&width=600"
+                src="/sonu.jpg"
                 alt="Sonu Gupta"
                 width={600}
                 height={600}
                 className="object-cover"
               />
             </div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground p-4 rounded-lg shadow-lg"
-            >
-              <p className="font-bold">Technical Chief Executive</p>
-              <p className="text-sm">SKDC, Mumbai</p>
-            </motion.div>
           </motion.div>
 
+          {/* Bio */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
@@ -56,24 +50,25 @@ export default function About() {
           >
             <h3 className="text-2xl font-bold mb-4">Who am I?</h3>
             <p className="mb-4 text-foreground/80">
-              I'm Sonu Gupta, a passionate Web Developer currently pursuing my Bachelor's in Engineering at St. Francis
-              Institute of Technology, expected to graduate in 2025.
+              I'm a Full-Stack Software Developer with hands-on experience in building scalable web applications using
+              React.js, Node.js, Express.js, Spring Boot, MySQL, and MongoDB. I have worked on ERP systems, recruitment
+              automation platforms, and intelligent HRMS solutions that streamline hiring processes.
             </p>
             <p className="mb-4 text-foreground/80">
-              I aim to work in an environment that encourages me to succeed and grow professionally, where I can utilize
-              my skills and knowledge appropriately.
+              With a Bachelor's degree in Information Technology (Honors in Data Science), I enjoy designing clean
+              architectures, writing efficient backend logic, and building responsive user interfaces. I am passionate
+              about automation, AI-powered systems, and solving real-world business problems through technology.
             </p>
             <p className="mb-6 text-foreground/80">
-              As the Technical Chief Executive at SKDC, I led a team of four individuals, collaborated to enhance the
-              committee's website, and developed an engaging game for the MOSAIC technical event.
+              I am always eager to learn, collaborate, and contribute to impactful software products.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
               <div>
                 <h4 className="font-semibold mb-2">Education</h4>
-                <p className="text-sm text-foreground/70">B.E. in Engineering</p>
+                <p className="text-sm text-foreground/70">B.E. in Information Technology</p>
                 <p className="text-sm text-foreground/70">St. Francis Institute of Technology</p>
-                <p className="text-sm text-foreground/70">CGPA: 7.51</p>
+                <p className="text-sm text-foreground/70">Honors in Data Science · CGPA: 7.53</p>
               </div>
               <div>
                 <h4 className="font-semibold mb-2">Interests</h4>
@@ -82,11 +77,37 @@ export default function About() {
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-2">
-              <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Web Development</span>
+            <div className="flex flex-wrap gap-2 mb-6">
+              <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Full-Stack Development</span>
               <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Team Leadership</span>
               <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Problem Solving</span>
-              <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Project Management</span>
+              <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">AI & Automation</span>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="mailto:sonugupta6045@gmail.com"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-muted hover:bg-primary hover:text-primary-foreground transition-colors text-sm font-medium"
+              >
+                <Mail size={15} /> Email
+              </a>
+              <a
+                href="https://www.linkedin.com/in/gupta-sonu-77668a245/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-muted hover:bg-primary hover:text-primary-foreground transition-colors text-sm font-medium"
+              >
+                <Linkedin size={15} /> LinkedIn
+              </a>
+              <a
+                href="https://github.com/sonugupta6045"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-muted hover:bg-primary hover:text-primary-foreground transition-colors text-sm font-medium"
+              >
+                <Github size={15} /> GitHub
+              </a>
             </div>
           </motion.div>
         </div>

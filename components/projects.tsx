@@ -14,7 +14,7 @@ const projects = [
     title: "News Hub",
     description:
       "A website that aggregates the latest news articles and blogs from various sources into one location for easy access. The website categorizes news to help users navigate and personalize their experience.",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "newhub.png?height=400&width=600",
     technologies: ["HTML", "CSS", "JavaScript", "Web Scraping"],
     link: "#",
     github: "#",
@@ -24,17 +24,17 @@ const projects = [
     title: "Medi Care",
     description:
       "A platform allowing users to easily book ambulance services through a user-friendly interface. Features real-time GPS tracking powered by Google Maps API and Web Sockets to monitor ambulance location in real-time.",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "medicare.png?height=400&width=600",
     technologies: ["HTML", "CSS", "JavaScript", "MySQL", "Django", "Google Maps API"],
-    link: "#",
-    github: "#",
+    link: "https://github.com/sonugupta6045/MediCare.git",
+    github: "https://github.com/sonugupta6045/MediCare.git",
   },
   {
     id: 3,
     title: "Automated Recruitment System",
     description:
       "An automated recruitment module within a Human Resource Management System (HRMS) tailored to meet the recruitment needs of tech startups, automating key stages such as candidate shortlisting and interview scheduling.",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "hrtechnext.png?height=800&width=1200",
     technologies: ["React", "Node.js", "Express", "MongoDB"],
     link: "#",
     github: "#",
