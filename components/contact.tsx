@@ -1,15 +1,15 @@
 "use client"
 
+import { useState, useEffect, useRef } from "react"
 import type React from "react"
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
-import { useRef, useState } from "react"
 import emailjs from "@emailjs/browser"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, Phone, MapPin, Send } from "lucide-react"
-import { useToast } from "@/hooks/use-toast"
+import { toast } from "sonner"
 
 const SERVICE_ID = "service_uqct6nl"
 const TEMPLATE_ID = "template_z0jb9d6"
@@ -19,7 +19,6 @@ export default function Contact() {
   const ref = useRef(null)
   const formRef = useRef<HTMLFormElement>(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
-  const { toast } = useToast()
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -29,17 +28,14 @@ export default function Contact() {
 
     try {
       await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
-      toast({
-        title: "Message sent! ✅",
-        description: "Thank you for reaching out. I'll get back to you soon.",
+      toast.success("Message sent successfully!", {
+        description: "Thank you for reaching out. I'll get back to you as soon as possible.",
       })
       formRef.current.reset()
     } catch (error) {
       console.error("EmailJS error:", error)
-      toast({
-        title: "Failed to send ❌",
-        description: "Something went wrong. Please try again or email me directly.",
-        variant: "destructive",
+      toast.error("Failed to send message", {
+        description: "Please try again later or contact me directly via email.",
       })
     } finally {
       setIsSubmitting(false)
@@ -47,13 +43,14 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" ref={ref} className="py-20 md:py-32">
-      <div className="container mx-auto px-4">
+    <section id="contact" ref={ref} className="py-20 md:py-32" suppressHydrationWarning>
+      <div className="container mx-auto px-4" suppressHydrationWarning>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
           className="mb-12 text-center"
+          suppressHydrationWarning
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
@@ -68,6 +65,7 @@ export default function Contact() {
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
             transition={{ duration: 0.5, delay: 0.2 }}
+            suppressHydrationWarning
           >
             <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
 
@@ -119,6 +117,7 @@ export default function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-card rounded-full hover:bg-primary/10 transition-colors"
+                  suppressHydrationWarning
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
                     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
@@ -126,10 +125,11 @@ export default function Contact() {
                 </motion.a>
                 <motion.a
                   whileHover={{ y: -3 }}
-                  href="https://www.linkedin.com/in/gupta-sonu-77668a245/"
+                  href="https://www.linkedin.com/in/sonu-gupta-77668a245"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-card rounded-full hover:bg-primary/10 transition-colors"
+                  suppressHydrationWarning
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
                     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
@@ -146,6 +146,7 @@ export default function Contact() {
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
             transition={{ duration: 0.5, delay: 0.3 }}
+            suppressHydrationWarning
           >
             <h3 className="text-2xl font-bold mb-6">Send Me a Message</h3>
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">

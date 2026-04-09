@@ -1,8 +1,8 @@
 "use client"
 
+import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
-import { useRef } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Github } from "lucide-react"
@@ -11,21 +11,21 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 const projects = [
   {
     id: 1,
-    title: "News Hub",
+    title: "NetScan",
     description:
-      "A website that aggregates the latest news articles and blogs from various sources into one location for easy access. The website categorizes news to help users navigate and personalize their experience.",
-    image: "newhub.png?height=400&width=600",
-    technologies: ["HTML", "CSS", "JavaScript", "Web Scraping"],
-    link: "#",
-    github: "#",
+      "An advanced network security scanner for device discovery, port analysis, and vulnerability assessment. Cross-references live services against the NVD database for known CVEs and generates professional security reports.",
+    image: "/netscan.png",
+    technologies: ["Python", "Flask", "Nmap", "Scapy", "SQLite"],
+    link: "https://github.com/sonugupta6045/NetScan.git",
+    github: "https://github.com/sonugupta6045/NetScan.git",
   },
   {
     id: 2,
     title: "Medi Care",
     description:
-      "A platform allowing users to easily book ambulance services through a user-friendly interface. Features real-time GPS tracking powered by Google Maps API and Web Sockets to monitor ambulance location in real-time.",
+      "A real-time ambulance booking platform featuring responsive UI for booking, real-time tracking, and status updates. Implemented live GPS tracking using WebSockets and Google Maps API, with Spring Boot handling secure workflows.",
     image: "medicare.png?height=400&width=600",
-    technologies: ["HTML", "CSS", "JavaScript", "MySQL", "Django", "Google Maps API"],
+    technologies: ["React.js", "Django", "PostgreSQL", "WebSockets", "Google Maps API", "Spring Boot"],
     link: "https://github.com/sonugupta6045/MediCare.git",
     github: "https://github.com/sonugupta6045/MediCare.git",
   },
@@ -33,11 +33,11 @@ const projects = [
     id: 3,
     title: "Automated Recruitment System",
     description:
-      "An automated recruitment module within a Human Resource Management System (HRMS) tailored to meet the recruitment needs of tech startups, automating key stages such as candidate shortlisting and interview scheduling.",
+      "An AI-powered HR platform built with Next.js and Tailwind CSS. Features Gemini API for resume parsing, Clerk for role-based access control, and automated interview scheduling via Google Calendar API.",
     image: "hrtechnext.png?height=800&width=1200",
-    technologies: ["React", "Node.js", "Express", "MongoDB"],
-    link: "#",
-    github: "#",
+    technologies: ["Next.js", "Tailwind CSS", "NeonDB", "Google Gemini API", "Clerk", "Google Calendar API"],
+    link: "https://github.com/sonugupta6045/HrTechNest.git",
+    github: "https://github.com/sonugupta6045/HrTechNest.git",
   },
 ]
 
@@ -65,13 +65,14 @@ export default function Projects() {
   }
 
   return (
-    <section id="projects" ref={ref} className="py-20 md:py-32">
-      <div className="container mx-auto px-4">
+    <section id="projects" ref={ref} className="py-20 md:py-32" suppressHydrationWarning>
+      <div className="container mx-auto px-4" suppressHydrationWarning>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
           className="mb-12 text-center"
+          suppressHydrationWarning
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">My Projects</h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
@@ -86,11 +87,12 @@ export default function Projects() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          suppressHydrationWarning
         >
           {projects.map((project) => (
-            <motion.div key={project.id} variants={itemVariants}>
-              <Card className="h-full flex flex-col overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                <div className="relative h-48 overflow-hidden">
+            <motion.div key={project.id} variants={itemVariants} suppressHydrationWarning>
+              <Card className="glass h-full flex flex-col overflow-hidden hover:shadow-2xl transition-all duration-300 border-none">
+                <div className="relative h-48 overflow-hidden rounded-t-xl">
                   <Image
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}

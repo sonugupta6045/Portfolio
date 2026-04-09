@@ -1,40 +1,40 @@
 "use client"
 
+import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
-import { useRef } from "react"
 import { Code, Database, Layout, Server, Settings, Terminal } from "lucide-react"
 
 const skills = [
   {
     category: "Programming Languages",
     icon: <Code className="h-6 w-6" />,
-    items: ["HTML5", "CSS5", "JavaScript", "Java", "SQL", "Python"],
+    items: ["Java", "Python", "JavaScript (ES6+)", "SQL", "HTML5", "CSS3"],
   },
   {
-    category: "Libraries & Frameworks",
+    category: "Back-end Systems",
+    icon: <Server className="h-6 w-6" />,
+    items: ["Spring Boot", "Spring MVC", "Node.js", "Express.js", "Django"],
+  },
+  {
+    category: "Front-end / Libraries",
     icon: <Layout className="h-6 w-6" />,
-    items: ["React JS", "Node JS", "Express JS"],
+    items: ["React.js", "Next.js", "Tailwind CSS", "WebSockets"],
   },
   {
     category: "Databases",
     icon: <Database className="h-6 w-6" />,
-    items: ["MySQL", "MongoDB"],
+    items: ["PostgreSQL", "MongoDB", "NeonDB"],
   },
   {
-    category: "Tools & Software",
+    category: "Professional Tools",
     icon: <Terminal className="h-6 w-6" />,
-    items: ["GIT & GitHub", "VS Code"],
+    items: ["Git", "GitHub", "Postman", "Linux CLI", "AWS basics"],
   },
   {
-    category: "Soft Skills",
+    category: "Core Concepts",
     icon: <Settings className="h-6 w-6" />,
-    items: ["Communication", "Teamwork", "Planning", "Discipline", "Collaboration"],
-  },
-  {
-    category: "Backend Development",
-    icon: <Server className="h-6 w-6" />,
-    items: ["RESTful APIs", "Server Management", "Authentication"],
+    items: ["OOP", "DSA", "SOLID Principles", "Agile/Scrum", "SDLC"],
   },
 ]
 
@@ -62,13 +62,14 @@ export default function Skills() {
   }
 
   return (
-    <section id="skills" ref={ref} className="py-20 md:py-32 bg-muted/30">
-      <div className="container mx-auto px-4">
+    <section id="skills" ref={ref} className="py-20 md:py-32 bg-transparent" suppressHydrationWarning>
+      <div className="container mx-auto px-4" suppressHydrationWarning>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
           className="mb-12 text-center"
+          suppressHydrationWarning
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">My Skills</h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
@@ -83,12 +84,14 @@ export default function Skills() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          suppressHydrationWarning
         >
           {skills.map((skillGroup, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className="bg-card rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-300"
+              className="glass rounded-xl p-6 hover:shadow-2xl transition-all duration-300 border-none"
+              suppressHydrationWarning
             >
               <div className="flex items-center mb-4">
                 <div className="p-2 bg-primary/10 rounded-full mr-3 text-primary">{skillGroup.icon}</div>
@@ -101,8 +104,9 @@ export default function Skills() {
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
                     transition={{ delay: 0.3 + skillIndex * 0.1, duration: 0.3 }}
-                    className="px-3 py-1 bg-background rounded-full text-sm border border-border"
+                    className="px-3 py-1 bg-white/5 dark:bg-black/10 rounded-full text-sm border-white/20"
                     whileHover={{ scale: 1.05 }}
+                    suppressHydrationWarning
                   >
                     {skill}
                   </motion.span>
@@ -117,9 +121,10 @@ export default function Skills() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.6 }}
           className="mt-16 text-center"
+          suppressHydrationWarning
         >
           <h3 className="text-2xl font-bold mb-4">Achievements</h3>
-          <div className="max-w-2xl mx-auto p-6 bg-card rounded-lg shadow-sm">
+          <div className="max-w-2xl mx-auto p-6 glass rounded-xl shadow-lg border-none text-center">
             <p className="text-foreground/80">
               Secured Top 10 rank in Datta Meghe college ISTE Hackathon for an inventory management with automation
               technology.

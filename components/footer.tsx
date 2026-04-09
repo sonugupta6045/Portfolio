@@ -1,5 +1,6 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { ArrowUp } from "lucide-react"
@@ -13,7 +14,7 @@ export default function Footer() {
             <Link href="#home" className="text-2xl font-bold">
               SG
             </Link>
-            <p className="mt-2 text-sm text-foreground/70">Web Developer & Technical Chief Executive</p>
+            <p className="mt-2 text-sm text-foreground/70">Software Developer</p>
           </motion.div>
 
           <motion.div
@@ -57,7 +58,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 pt-8 border-t border-border text-center">
-          <p className="text-sm text-foreground/60">© {new Date().getFullYear()} Sonu Gupta. All rights reserved.</p>
+          <p className="text-sm text-foreground/60" suppressHydrationWarning>© {new Date().getFullYear()} Sonu Gupta. All rights reserved.</p>
         </div>
       </div>
     </footer>

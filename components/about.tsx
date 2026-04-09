@@ -1,8 +1,8 @@
 "use client"
 
+import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
-import { useRef } from "react"
 import Image from "next/image"
 import { Mail, Github, Linkedin } from "lucide-react"
 
@@ -11,13 +11,14 @@ export default function About() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section id="about" ref={ref} className="py-20 md:py-32 bg-muted/30">
-      <div className="container mx-auto px-4">
+    <section id="about" ref={ref} className="py-20 md:py-32 bg-transparent" suppressHydrationWarning>
+      <div className="container mx-auto px-4" suppressHydrationWarning>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
           className="mb-12 text-center"
+          suppressHydrationWarning
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
           <div className="w-20 h-1 bg-primary mx-auto"></div>
@@ -30,16 +31,26 @@ export default function About() {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="relative"
+            suppressHydrationWarning
           >
-            <div className="aspect-square relative rounded-lg overflow-hidden border-4 border-background shadow-xl">
+            <motion.div
+              className="aspect-square relative flex items-center justify-center min-h-[400px]"
+              animate={{
+                y: [0, -15, 0],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
               <Image
-                src="/sonu.jpg"
-                alt="Sonu Gupta"
-                width={600}
-                height={600}
-                className="object-cover"
+                src="/3d-avatar-no-bg.png"
+                alt="3D Avatar"
+                fill
+                className="object-contain transition-transform duration-500 hover:scale-105"
               />
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Bio */}
@@ -47,6 +58,7 @@ export default function About() {
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
             transition={{ duration: 0.5, delay: 0.3 }}
+            suppressHydrationWarning
           >
             <h3 className="text-2xl font-bold mb-4">Who am I?</h3>
             <p className="mb-4 text-foreground/80">
@@ -63,19 +75,7 @@ export default function About() {
               I am always eager to learn, collaborate, and contribute to impactful software products.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-              <div>
-                <h4 className="font-semibold mb-2">Education</h4>
-                <p className="text-sm text-foreground/70">B.E. in Information Technology</p>
-                <p className="text-sm text-foreground/70">St. Francis Institute of Technology</p>
-                <p className="text-sm text-foreground/70">Honors in Data Science · CGPA: 7.53</p>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-2">Interests</h4>
-                <p className="text-sm text-foreground/70">Cricket, Carrom, Mobile games</p>
-                <p className="text-sm text-foreground/70">Travelling, Badminton</p>
-              </div>
-            </div>
+
 
             <div className="flex flex-wrap gap-2 mb-6">
               <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Full-Stack Development</span>
@@ -85,18 +85,18 @@ export default function About() {
             </div>
 
             {/* Social Links */}
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 mt-8">
               <a
                 href="mailto:sonugupta6045@gmail.com"
-                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-muted hover:bg-primary hover:text-primary-foreground transition-colors text-sm font-medium"
+                className="glass flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-white/20 transition-all text-sm font-medium border-none"
               >
                 <Mail size={15} /> Email
               </a>
               <a
-                href="https://www.linkedin.com/in/gupta-sonu-77668a245/"
+                href="https://www.linkedin.com/in/sonu-gupta-77668a245"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-muted hover:bg-primary hover:text-primary-foreground transition-colors text-sm font-medium"
+                className="glass flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-white/20 transition-all text-sm font-medium border-none"
               >
                 <Linkedin size={15} /> LinkedIn
               </a>
@@ -104,7 +104,7 @@ export default function About() {
                 href="https://github.com/sonugupta6045"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-muted hover:bg-primary hover:text-primary-foreground transition-colors text-sm font-medium"
+                className="glass flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-white/20 transition-all text-sm font-medium border-none"
               >
                 <Github size={15} /> GitHub
               </a>
